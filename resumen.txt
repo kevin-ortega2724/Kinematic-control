@@ -1,0 +1,27 @@
+Inicialización y Configuración: El script comienza con la configuración de parámetros como el tiempo de muestreo mínimo, el tamaño máximo de los vectores, y los rangos angulares y de velocidad para los servomotores. Establece conexiones con el puerto serie para comunicarse con un Arduino y configura la interfaz gráfica al iniciar.
+Funciones de Callback: Contiene varias funciones de callback para manejar eventos de botones en la GUI, como cargar datos de ángulos y velocidades para servomotores izquierdo y derecho desde archivos CSV, calcular cinemática inversa, ejecutar la trayectoria, y cargar servos. Estas funciones permiten al usuario seleccionar archivos, procesar los datos, y actualizar la interfaz gráfica en consecuencia.
+Comunicación con Arduino: Utiliza la comunicación serie para enviar comandos al Arduino, como mover todos los servos a su posición inicial ('h'), y cerrar la conexión al cerrar la ventana de la GUI. También inicializa la conexión con el Arduino al inicio.
+Graficación: Proporciona funcionalidades para graficar las posiciones y velocidades de los servos izquierdo y derecho, así como la trayectoria del mecanismo. Las gráficas se actualizan en tiempo real y pueden ser guardadas como archivos SVG.
+Cálculo de Cinemática Inversa: Realiza cálculos de cinemática inversa para determinar las posiciones de los servos basándose en los ángulos y velocidades especificados. Esto incluye la conversión de grados a cuentas para controlar los servos y ajustes basados en la configuración del mecanismo.
+Control de la Ejecución: Permite al usuario ejecutar la trayectoria calculada en el Arduino, detener la ejecución, y analizar los resultados. Incluye la capacidad de cargar los datos de los servos al Arduino y leer los datos de los encoders de los servos durante la ejecución para verificar la precisión de la trayectoria.
+Interfaz Gráfica de Usuario (GUI): La GUI permite al usuario interactuar con el sistema, seleccionar archivos, visualizar datos, y controlar la ejecución de la trayectoria. Los elementos de la GUI incluyen botones para cargar datos, ejecutar, detener, y analizar la trayectoria, así como paneles para mostrar gráficos y mensajes de estado.
+Cálculos y Graficación de Cinemática: Realiza cálculos de cinemática inversa para determinar las posiciones de los servos basándose en los ángulos dados y grafica la trayectoria esperada. Esto incluye la visualización de las barras del mecanismo y la trayectoria en un plano 2D.
+Gestión de Estado: Utiliza variables globales para mantener el estado del sistema, como el estado de los botones, los vectores de ángulos y velocidades, y banderas para controlar el flujo del programa.
+Audio Feedback: Utiliza archivos de audio para proporcionar feedback al usuario sobre el estado de operaciones como la carga de datos, cálculos exitosos o fallidos, y la ejecución de la trayectoria.
+Guardado de Datos: Guarda datos de la ejecución en un archivo Excel, lo que permite un análisis posterior de los resultados.
+Ejecución de Trayectoria: Envía los datos de ángulos y velocidades al Arduino y lee los datos de los encoders durante la ejecución para verificar la precisión de la trayectoria. Permite al usuario detener la ejecución en cualquier momento.
+Personalización: Permite al usuario ajustar parámetros como el tiempo de muestreo, tamaño del vector, y otros parámetros del mecanismo.
+Errores y Validaciones: Incluye validaciones para asegurar que los datos cargados sean correctos y consistentes antes de proceder con cálculos y ejecución.
+Graficación Dinámica: Actualiza dinámicamente las gráficas en la GUI para mostrar los datos cargados, la trayectoria calculada, y los datos de ejecución en tiempo real.
+Cierre: Cierra la conexión con el Arduino y limpia la GUI al cerrar la ventana.
+
+
+Estructura de codig; 
+proyecto_mecatronica/
+│
+├── config.py          # Variables globales y configuración
+├── gui.py          # Clase principal de la GUI
+├── communication.py  # Comunicación serie con Arduino
+├── kinematics.py    # Cálculos de cinemática
+├── plotting.py     # Funciones de graficación
+└── utils.py       # Funciones útiles
